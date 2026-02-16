@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![Machine Learning](https://img.shields.io/badge/Machine-Learning-green.svg)
 ![Status](https://img.shields.io/badge/Project-Completed-success.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 The **Credit Card Fraud Detection System** is a machine learning project designed to identify fraudulent transactions with high precision.  
 It leverages the Kaggle Credit Card dataset and addresses extreme class imbalance using **SMOTE (Synthetic Minority Over-sampling Technique)** to ensure the model learns rare fraud patterns effectively.
@@ -113,24 +112,33 @@ git clone https://github.com/your-username/Credit-Card-Fraud-Detection.git
 cd Credit-Card-Fraud-Detection 
 
 2️⃣ Install Dependencies
+
 pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn xgboost
 
 3️⃣ Dataset Setup
 
+
 Download the dataset from Kaggle:
 https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
 
 Place creditcard.csv inside the project root directory.
 
 📁 Project Structure
+
 Credit-Card-Fraud-Detection/
 │
+
 ├── creditcard.csv
+
 ├── fraud_detection.ipynb
+
 ├── requirements.txt
+
 └── README.md
 
 👨‍💻 Author
 
 Kamal Pokhrel
+
 GitHub: https://github.com/kmlPokhrel
