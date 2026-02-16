@@ -4,22 +4,40 @@ Machine Learning project to detect fraud using SMOTE and Random Forest.
 
 The Credit Card Fraud Detection System is a machine learning project designed to identify fraudulent transactions with high precision. It leverages the Kaggle Credit Card dataset, addressing extreme class imbalance using SMOTE (Synthetic Minority Over-sampling Technique) to ensure the model learns the patterns of "needle-in-a-haystack" fraud cases.
 
-📋 Table of Contents
-Dataset
+# 💳 Credit Card Fraud Detection System
 
-Installation
+The **Credit Card Fraud Detection System** is a machine learning project designed to identify fraudulent transactions with high precision. It leverages the Kaggle Credit Card dataset, addressing extreme class imbalance using **SMOTE** (Synthetic Minority Over-sampling Technique) to ensure the model learns the patterns of "needle-in-a-haystack" fraud cases.
 
-Problem Statement
+---
 
-Features
+## 📋 Table of Contents
+* [📊 Dataset](#-dataset)
+* [⚙️ Installation](#️-installation)
+* [🎯 Problem Statement](#-problem-statement)
+* [✨ Features](#-features)
+* [🤖 Models](#-models)
+* [📈 Evaluation Metrics](#-evaluation-metrics)
+* [🏆 Results](#-results)
+* [⚖️ License](#️-license)
 
-Models
+---
 
-Evaluation Metrics
+## 📊 Dataset
+The dataset used for this project contains transactions made by European cardholders in September 2013.
+* **Total Transactions:** 284,807
+* **Fraudulent Transactions:** 492 (0.17%)
+* **Features:** V1-V28 (PCA-transformed components), Time, and Amount.
+* **Target:** `Class` (1 for Fraud, 0 for Genuine).
 
-Results
+---
 
-License
+## ⚙️ Installation
+To run this project locally, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/Credit-Card-Fraud-Detection](https://github.com/your-username/Credit-Card-Fraud-Detection)
+   cd Credit-Card-Fraud-Detection
 
 📊 Dataset
 The dataset used for this project contains transactions made by European cardholders.
