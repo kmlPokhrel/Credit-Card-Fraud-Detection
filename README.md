@@ -1,195 +1,136 @@
-# Credit-Card-Fraud-Detection
-Machine Learning project to detect fraud using SMOTE and Random Forest.
-
-
-The Credit Card Fraud Detection System is a machine learning project designed to identify fraudulent transactions with high precision. It leverages the Kaggle Credit Card dataset, addressing extreme class imbalance using SMOTE (Synthetic Minority Over-sampling Technique) to ensure the model learns the patterns of "needle-in-a-haystack" fraud cases.
-
 # 💳 Credit Card Fraud Detection System
 
-The **Credit Card Fraud Detection System** is a machine learning project designed to identify fraudulent transactions with high precision. It leverages the Kaggle Credit Card dataset, addressing extreme class imbalance using **SMOTE** (Synthetic Minority Over-sampling Technique) to ensure the model learns the patterns of "needle-in-a-haystack" fraud cases.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-green.svg)
+![Status](https://img.shields.io/badge/Project-Completed-success.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+The **Credit Card Fraud Detection System** is a machine learning project designed to identify fraudulent transactions with high precision.  
+It leverages the Kaggle Credit Card dataset and addresses extreme class imbalance using **SMOTE (Synthetic Minority Over-sampling Technique)** to ensure the model learns rare fraud patterns effectively.
 
 ---
 
-## 📋 Table of Contents
-* [📊 Dataset](#-dataset)
-* [⚙️ Installation](#️-installation)
-* [🎯 Problem Statement](#-problem-statement)
-* [✨ Features](#-features)
-* [🤖 Models](#-models)
-* [📈 Evaluation Metrics](#-evaluation-metrics)
-* [🏆 Results](#-results)
-* [⚖️ License](#️-license)
+## 📌 Table of Contents
+
+- [📊 Dataset](#-dataset)
+- [🎯 Problem Statement](#-problem-statement)
+- [✨ Features](#-features)
+- [🤖 Models Used](#-models-used)
+- [📈 Evaluation Metrics](#-evaluation-metrics)
+- [🏆 Results](#-results)
+- [⚙️ Installation & Setup](#️-installation--setup)
+- [📁 Project Structure](#-project-structure)
+- [📜 License](#-license)
 
 ---
 
 ## 📊 Dataset
+
 The dataset used for this project contains transactions made by European cardholders in September 2013.
-* **Total Transactions:** 284,807
-* **Fraudulent Transactions:** 492 (0.17%)
-* **Features:** V1-V28 (PCA-transformed components), Time, and Amount.
-* **Target:** `Class` (1 for Fraud, 0 for Genuine).
+
+- **Total Transactions:** 284,807  
+- **Fraudulent Transactions:** 492 (0.17%)  
+- **Features:** V1–V28 (PCA-transformed components), `Time`, and `Amount`  
+- **Target Variable:** `Class`  
+  - `1` → Fraud  
+  - `0` → Genuine  
+
+🔗 Dataset Source:  
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 ---
 
-## ⚙️ Installation
-To run this project locally, follow these steps:
+## 🎯 Problem Statement
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/your-username/Credit-Card-Fraud-Detection](https://github.com/your-username/Credit-Card-Fraud-Detection)
-   cd Credit-Card-Fraud-Detection
+In financial fraud detection, **Accuracy is misleading**.
 
-📊 Dataset
-The dataset used for this project contains transactions made by European cardholders.
+Since 99.8% of transactions are legitimate, a model that predicts *“Not Fraud”* every time would achieve 99.8% accuracy — yet be completely useless.
 
-Total Transactions: 284,807
+This project prioritizes:
 
-Fraudulent Transactions: 492 (0.17%)
+- 🔎 **High Recall** → Minimize False Negatives (missed fraud cases)
+- ⚖️ Balanced Precision → Avoid excessive false alarms
+- 🎯 Practical real-world fraud detection performance
 
-Features: V1-V28 (PCA components), Time, and Amount.
+---
 
-Target: Class (1 for Fraud, 0 for Genuine).
+## ✨ Features
 
-⚙️ Installation
-To run this project locally, follow these steps:
+✔ Data Preprocessing with Robust Scaling  
+✔ SMOTE for Class Imbalance Handling  
+✔ Exploratory Data Analysis (EDA)  
+✔ Feature Correlation Visualization  
+✔ Multiple Model Benchmarking  
+✔ Confusion Matrix Analysis  
 
-Clone the repository:
+---
 
-Bash
-git clone https://github.com/your-username/Credit-Card-Fraud-Detection
-cd Credit-Card-Fraud-Detection
-Install required dependencies:
+## 🤖 Models Used
 
-Bash
-pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn
-Download the Dataset: Place the creditcard.csv file in the root directory.
+The following machine learning models were implemented and compared:
 
-🎯 Problem Statement
-In financial fraud detection, Accuracy is a trap. Because 99.8% of transactions are legitimate, a model that simply predicts "Not Fraud" every time would be 99.8% accurate but entirely useless. This project focuses on Recall—minimizing "False Negatives" (missed frauds) to protect the user and the bank.
+1. **Random Forest Classifier** (Primary Model)
+   <img width="3058" height="1629" alt="image" src="https://github.com/user-attachments/assets/9c6b9994-c4b7-4925-ab06-b4bbfbf62c73" />
 
-✨ Features
-Data Preprocessing: Robust scaling of transaction amounts to handle outliers.
+2. **Logistic Regression** (Baseline Model)
+3. **XGBoost Classifier** (Advanced Boosting Model)
 
-Imbalance Handling: Implementation of SMOTE to balance the training data.
 
-EDA: Detailed visualizations of feature correlations and class distributions.
+---
 
-Model Comparison: Parallel testing of multiple algorithms.
+## 📈 Evaluation Metrics
 
-🤖 Models
-The project evaluates the performance of the following classifiers:
+Since this is a highly imbalanced dataset, the following metrics were prioritized:
 
-Random Forest Classifier (Primary Model)
+- **Precision** → Accuracy of fraud alerts  
+- **Recall** → Ability to detect all actual fraud cases  
+- **F1-Score** → Balance between Precision & Recall  
+- **Confusion Matrix** → Performance visualization  
 
-Logistic Regression (Baseline Model)
+---
 
-XGBoost (Advanced Gradient Boosting)
+## 🏆 Results
 
-<img width="3058" height="1629" alt="image" src="https://github.com/user-attachments/assets/a2d35b05-0810-4050-8dc3-85a443e4e587" />
+| Model                          | Precision | Recall | F1-Score |
+|--------------------------------|-----------|--------|----------|
+| Random Forest + SMOTE         | 0.88      | 0.82   | 0.85     |
+| Logistic Regression + SMOTE   | 0.06      | 0.91   | 0.11     |
 
-📈 Evaluation Metrics
-Since this is an imbalanced classification problem, we evaluate models based on:
+### ✅ Conclusion
 
-Precision: Accuracy of fraud alarms.
+The **Random Forest model with SMOTE** achieved the best balance between precision and recall.
 
-Recall: The ability to find all fraudulent transactions.
+Although Logistic Regression achieved higher recall, it produced excessive false positives (very low precision), making it impractical for real-world deployment.
 
-F1-Score: The harmonic mean of Precision and Recall.
+---
 
-Confusion Matrix: To visualize True Positives vs. False Negatives.
+## ⚙️ Installation & Setup
 
-🏆 Results
-Model,Precision,Recall,F1-Score
-Random Forest + SMOTE,0.88,0.82,0.85
-Logistic Regression + SMOTE,0.06,0.91,0.11
+### 1️⃣ Clone the Repository
 
-Gemini said
-You want that professional, "Open Source" look. Since this is your first project and you're heading toward a GitHub upload, this structure will make it look like you've been doing this for years.
+bash
+git clone https://github.com/your-username/Credit-Card-Fraud-Detection.git
+cd Credit-Card-Fraud-Detection 
 
-Here is your Credit Card Fraud Detection README.md, styled exactly like the high-quality IPL repository you found.
+2️⃣ Install Dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn xgboost
 
-💳 Credit Card Fraud Detection System
-The Credit Card Fraud Detection System is a machine learning project designed to identify fraudulent transactions with high precision. It leverages the Kaggle Credit Card dataset, addressing extreme class imbalance using SMOTE (Synthetic Minority Over-sampling Technique) to ensure the model learns the patterns of "needle-in-a-haystack" fraud cases.
+3️⃣ Dataset Setup
 
-📋 Table of Contents
-Dataset
+Download the dataset from Kaggle:
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
-Installation
+Place creditcard.csv inside the project root directory.
 
-Problem Statement
+📁 Project Structure
+Credit-Card-Fraud-Detection/
+│
+├── creditcard.csv
+├── fraud_detection.ipynb
+├── requirements.txt
+└── README.md
 
-Features
+👨‍💻 Author
 
-Models
-
-Evaluation Metrics
-
-Results
-
-License
-
-📊 Dataset
-The dataset used for this project contains transactions made by European cardholders.
-
-Total Transactions: 284,807
-
-Fraudulent Transactions: 492 (0.17%)
-
-Features: V1-V28 (PCA components), Time, and Amount.
-
-Target: Class (1 for Fraud, 0 for Genuine).
-
-⚙️ Installation
-To run this project locally, follow these steps:
-
-Clone the repository:
-
-Bash
-git clone https://github.com/your-username/Credit-Card-Fraud-Detection
-cd Credit-Card-Fraud-Detection
-Install required dependencies:
-
-Bash
-pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn
-Download the Dataset: Place the creditcard.csv file in the root directory.
-
-🎯 Problem Statement
-In financial fraud detection, Accuracy is a trap. Because 99.8% of transactions are legitimate, a model that simply predicts "Not Fraud" every time would be 99.8% accurate but entirely useless. This project focuses on Recall—minimizing "False Negatives" (missed frauds) to protect the user and the bank.
-
-✨ Features
-Data Preprocessing: Robust scaling of transaction amounts to handle outliers.
-
-Imbalance Handling: Implementation of SMOTE to balance the training data.
-
-EDA: Detailed visualizations of feature correlations and class distributions.
-
-Model Comparison: Parallel testing of multiple algorithms.
-
-🤖 Models
-The project evaluates the performance of the following classifiers:
-
-Random Forest Classifier (Primary Model)
-
-Logistic Regression (Baseline Model)
-
-XGBoost (Advanced Gradient Boosting)
-
-Image of random forest architecture
-Shutterstock
-📈 Evaluation Metrics
-Since this is an imbalanced classification problem, we evaluate models based on:
-
-Precision: Accuracy of fraud alarms.
-
-Recall: The ability to find all fraudulent transactions.
-
-F1-Score: The harmonic mean of Precision and Recall.
-
-Confusion Matrix: To visualize True Positives vs. False Negatives.
-
-🏆 Results
-Model	Precision	Recall	F1-Score
-Random Forest + SMOTE	0.88	0.82	0.85
-Logistic Regression + SMOTE	0.06	0.91	0.11
-
-Conclusion: The Random Forest model achieved the best balance for real-world application, successfully detecting fraud while maintaining a low false-alarm rate.
+Kamal Pokhrel
+GitHub: https://github.com/kmlPokhrel
